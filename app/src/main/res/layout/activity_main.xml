@@ -7,119 +7,133 @@
     android:background="@drawable/simploodle_cat"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="316dp"
+        android:layout_height="275dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="228dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="108dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="Simploodle Cat"
+            android:textColor="@color/black"
+            android:textSize="45dp" />
+
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="250dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:inputType="textImeMultiLine"
+            android:hint="Я хочу найти..."/>
+
+        <Button
+            android:id="@+id/searchButton"
+            android:layout_width="192dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Котик, найди" />
+
+    </LinearLayout>
+
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="269dp"
-        android:layout_height="108dp"
-        android:background="@drawable/border"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:text="Simploodle Cat"
-        android:textSize="45dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.218" />
-
-    <EditText
-        android:id="@+id/searchEditText"
-        android:layout_width="271dp"
-        android:layout_height="43dp"
+        android:layout_width="173dp"
+        android:layout_height="316dp"
         android:background="@drawable/border"
         android:gravity="center"
-        android:inputType="textImeMultiLine"
+        android:text="Привет! Меня зовут котик Симплуудл и я могу помочь вам с поиском в Интернете. Вы вводите текст в поле поиска, нажимаете кнопку 'Котик, найди', и я найду сайт для вас. Вы также можете выбрать тип поиска, такой как сайты, изображения, видео, карты или новости. Удачи в поиске! :)"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.054" />
-
-    <Button
-        android:id="@+id/searchButton"
-        android:layout_width="159dp"
-        android:layout_height="49dp"
-        android:text="Мне повезёт?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchEditText"
-        app:layout_constraintVertical_bias="0.019" />
-
-    <ProgressBar
-        android:id="@+id/loadingProgressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#6750A3"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchButton"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/optionsRadioGroup1"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout1"
+        app:layout_constraintVertical_bias="1.0" />
 
     <RadioGroup
-        android:id="@+id/optionsRadioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/optionsRadioGroup1"
+        android:layout_width="206dp"
+        android:layout_height="324dp"
+        android:layout_below="@id/linearLayout1"
+        android:layout_centerHorizontal="true"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchButton"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginLeft="15dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout1"
+        app:layout_constraintVertical_bias="0.76">
 
         <RadioButton
             android:id="@+id/siteRadioButton"
-            android:layout_width="120dp"
+            android:layout_width="80dp"
             android:layout_height="50dp"
+            android:layout_gravity="center"
             android:background="@drawable/border"
-            android:gravity="center"
             android:text="Сайт" />
 
         <RadioButton
             android:id="@+id/imageRadioButton"
             android:layout_width="120dp"
             android:layout_height="50dp"
+            android:layout_gravity="center"
             android:layout_marginTop="12dp"
             android:background="@drawable/border"
-            android:gravity="center"
-            android:text="Картинки"
-            app:layout_constraintTop_toBottomOf="@+id/siteRadioButton" />
+            android:text="Картинки" />
 
         <RadioButton
             android:id="@+id/videoRadioButton"
-            android:layout_width="120dp"
+            android:layout_width="90dp"
             android:layout_height="50dp"
+            android:layout_gravity="center"
             android:layout_marginTop="12dp"
             android:background="@drawable/border"
-            android:gravity="center"
-            android:text="Видео"
-            app:layout_constraintTop_toBottomOf="@+id/imageRadioButton" />
+            android:text="Видео" />
 
         <RadioButton
             android:id="@+id/mapsRadioButton"
-            android:layout_width="120dp"
+            android:layout_width="90dp"
             android:layout_height="50dp"
+            android:layout_gravity="center"
             android:layout_marginTop="12dp"
             android:background="@drawable/border"
-            android:gravity="center"
-            android:text="Карты"
-            app:layout_constraintTop_toBottomOf="@+id/videoRadioButton" />
+            android:text="Карты" />
 
         <RadioButton
             android:id="@+id/newsRadioButton"
-            android:layout_width="120dp"
+            android:layout_width="110dp"
             android:layout_height="50dp"
+            android:layout_gravity="center"
             android:layout_marginTop="12dp"
             android:background="@drawable/border"
-            android:gravity="center"
-            android:text="Новости"
-            app:layout_constraintTop_toBottomOf="@+id/mapsRadioButton" />
+            android:text="Новости" />
 
     </RadioGroup>
 
-
+    <ProgressBar
+        android:id="@+id/loadingProgressBar"
+        android:layout_width="87dp"
+        android:layout_height="78dp"
+        android:textColor="#6750A3"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

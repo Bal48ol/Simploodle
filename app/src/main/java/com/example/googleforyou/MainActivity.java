@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -63,11 +64,17 @@ public class MainActivity extends AppCompatActivity {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                animateClick(searchButton);
                 String doodle = searchEditText.getText().toString();
                 String searchUrl1 = "https://search.yahoo.com/search?p=" + doodle;
                 String searchUrl = "https://www.google.com/search?q=" + doodle;
+
+                if(doodle.isEmpty()){
+                    Toast.makeText(MainActivity.this, "Пожалуйста, введите что-нибудь :(", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                animateClick(searchButton);
+
                 ExecutorService executor = Executors.newSingleThreadExecutor();
                 Future<String> future = executor.submit(new Callable<String>() {
                     @Override
@@ -211,6 +218,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 loadingProgressBar.setVisibility(View.GONE);
                 searchEditText.setText("");
+                siteRadioButton.setChecked(true);
                 imageRadioButton.setChecked(false);
                 videoRadioButton.setChecked(false);
                 mapsRadioButton.setChecked(false);
