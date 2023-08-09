@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/doodle_cat"
+    android:background="@drawable/simploodle_cat"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="234dp"
-        android:layout_height="62dp"
+        android:layout_width="269dp"
+        android:layout_height="108dp"
         android:background="@drawable/border"
-        android:fontFamily="sans-serif-thin"
+        android:fontFamily="sans-serif"
         android:gravity="center"
-        android:text="Simploodle"
+        android:text="Simploodle Cat"
         android:textSize="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,12 +36,23 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.054" />
 
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="159dp"
+        android:layout_height="49dp"
+        android:text="Мне повезёт?"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchEditText"
+        app:layout_constraintVertical_bias="0.019" />
+
     <ProgressBar
         android:id="@+id/loadingProgressBar"
-        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#6750A3"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -49,16 +60,66 @@
         app:layout_constraintTop_toBottomOf="@+id/searchButton"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/searchButton"
-        android:layout_width="159dp"
-        android:layout_height="49dp"
-        android:text="Мне повезёт?"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <RadioGroup
+        android:id="@+id/optionsRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchEditText"
-        app:layout_constraintVertical_bias="0.019" />
+        app:layout_constraintTop_toBottomOf="@+id/searchButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginLeft="15dp">
+
+        <RadioButton
+            android:id="@+id/siteRadioButton"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:text="Сайт" />
+
+        <RadioButton
+            android:id="@+id/imageRadioButton"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:text="Картинки"
+            app:layout_constraintTop_toBottomOf="@+id/siteRadioButton" />
+
+        <RadioButton
+            android:id="@+id/videoRadioButton"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:text="Видео"
+            app:layout_constraintTop_toBottomOf="@+id/imageRadioButton" />
+
+        <RadioButton
+            android:id="@+id/mapsRadioButton"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:text="Карты"
+            app:layout_constraintTop_toBottomOf="@+id/videoRadioButton" />
+
+        <RadioButton
+            android:id="@+id/newsRadioButton"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:text="Новости"
+            app:layout_constraintTop_toBottomOf="@+id/mapsRadioButton" />
+
+    </RadioGroup>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

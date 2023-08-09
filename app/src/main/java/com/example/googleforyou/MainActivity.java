@@ -11,8 +11,11 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -35,6 +38,11 @@ public class MainActivity extends AppCompatActivity {
     private EditText searchEditText;
     private Button searchButton;
     private ProgressBar loadingProgressBar;
+    private RadioButton siteRadioButton;
+    private RadioButton imageRadioButton;
+    private RadioButton videoRadioButton;
+    private RadioButton mapsRadioButton;
+    private RadioButton newsRadioButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +52,22 @@ public class MainActivity extends AppCompatActivity {
         searchEditText = findViewById(R.id.searchEditText);
         searchButton = findViewById(R.id.searchButton);
         loadingProgressBar = findViewById(R.id.loadingProgressBar);
+        siteRadioButton = findViewById(R.id.siteRadioButton);
+        imageRadioButton = findViewById(R.id.imageRadioButton);
+        videoRadioButton = findViewById(R.id.videoRadioButton);
+        mapsRadioButton = findViewById(R.id.mapsRadioButton);
+        newsRadioButton = findViewById(R.id.newsRadioButton);
+
+        siteRadioButton.setChecked(true);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 animateClick(searchButton);
                 String doodle = searchEditText.getText().toString();
-                String searchUrl = "https://www.google.com/search?q=" + doodle; // search.yahoo.com
+                String searchUrl1 = "https://search.yahoo.com/search?p=" + doodle;
+                String searchUrl = "https://www.google.com/search?q=" + doodle;
                 ExecutorService executor = Executors.newSingleThreadExecutor();
                 Future<String> future = executor.submit(new Callable<String>() {
                     @Override
@@ -117,6 +134,18 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                     }
                                 }
+                                if(imageRadioButton.isChecked()){
+                                    firstLinkUrl = "https://yandex.ru/images/search?text=" + doodle + "&lr=14";
+                                }
+                                else if(videoRadioButton.isChecked()){
+                                    firstLinkUrl = "https://www.youtube.com/results?search_query=" + doodle;
+                                }
+                                else if(mapsRadioButton.isChecked()){
+                                    firstLinkUrl = "https://2gis.ru/search/" + doodle.replace(" ", "%20");
+                                }
+                                else if(newsRadioButton.isChecked()){
+                                    firstLinkUrl = "https://lenta.ru/search?query=" + doodle;
+                                }
 
                                 if (firstLinkUrl != null) {
                                     openUrl(firstLinkUrl);
@@ -127,19 +156,16 @@ public class MainActivity extends AppCompatActivity {
                                         String link = links.get(i);
                                         if (!link.isEmpty()) {
                                             skippedCount++;
-                                            if (skippedCount <= 5) {
-                                                continue; // Пропускаем первую и вторую непустую ссылку
+                                            if (skippedCount <= 6) {
+                                                continue;
                                             } else {
-                                                Log.d("Link арбуз", "Link арбуз: " + link);
+                                                Log.d("Open link", "Open link: " + link);
                                                 openUrl(link);
-                                                break; // Прерываем цикл после открытия третьей непустой ссылки
+                                                break;
                                             }
                                         }
                                     }
-
-
                                 }
-
                             }
                         }
                         catch (IOException e) {
@@ -185,6 +211,10 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 loadingProgressBar.setVisibility(View.GONE);
                 searchEditText.setText("");
+                imageRadioButton.setChecked(false);
+                videoRadioButton.setChecked(false);
+                mapsRadioButton.setChecked(false);
+                newsRadioButton.setChecked(false);
             }
         }, 2500);
     }
