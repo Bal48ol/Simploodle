@@ -1,8 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.GoogleForYou" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">#184A7D</item>
+        <item name="android:textColor">#184A7D</item>
+        <item name="colorPrimaryVariant">#2492F7</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#2492F7</item>
+        <item name="colorSecondaryVariant">#2492F7</item>
+        <item name="colorOnSecondary">#2491F6</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">#434B5B</item>
+        <item name="android:navigationBarColor">#790B1B</item>
+        <item name="android:windowLightNavigationBar">true</item>
     </style>
 
     <style name="Theme.GoogleForYou" parent="Base.Theme.GoogleForYou" />

@@ -64,12 +64,21 @@ public class MainActivity extends AppCompatActivity {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String doodle = searchEditText.getText().toString();
+                String doodle = searchEditText.getText().toString().toLowerCase();
                 String searchUrl1 = "https://search.yahoo.com/search?p=" + doodle;
                 String searchUrl = "https://www.google.com/search?q=" + doodle;
 
                 if(doodle.isEmpty()){
                     Toast.makeText(MainActivity.this, "Пожалуйста, введите что-нибудь :(", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(doodle.equals("порно") || doodle.equals("порн") || doodle.equals("порнография") || doodle.equals("секс") || doodle.equals("прон")
+                        || doodle.equals("цыпочки") || doodle.equals("горячие девочки") || doodle.equals("сучки") || doodle.equals("анал") || doodle.equals("орал")
+                        || doodle.equals("сиськи") || doodle.equals("чайлдпрон") || doodle.equals("чайлдпорн") || doodle.equals("porn") || doodle.equals("hot chicks")
+                        || doodle.equals("hot girl") || doodle.equals("sexual") || doodle.equals("anal") || doodle.equals("хуй") || doodle.equals("пизда")
+                        || doodle.equals("джигурда") || doodle.equals("большие сиськи") || doodle.equals("большие белые сиськи") || doodle.equals("большие черные сиськи")){
+                    Toast.makeText(MainActivity.this, "Прости, котик-помощник не может помочь тебе с этим :(", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -147,8 +156,9 @@ public class MainActivity extends AppCompatActivity {
                                 else if(videoRadioButton.isChecked()){
                                     firstLinkUrl = "https://www.youtube.com/results?search_query=" + doodle;
                                 }
-                                else if(mapsRadioButton.isChecked()){
-                                    firstLinkUrl = "https://2gis.ru/search/" + doodle.replace(" ", "%20");
+                                else if(mapsRadioButton.isChecked()) {
+                                    //firstLinkUrl = "https://yandex.ru/maps/14/city/search/" + doodle.replace(" ", "%20");
+                                    firstLinkUrl = "https://2gis.ru/city/search/" + doodle.replace(" ", "%20");
                                 }
                                 else if(newsRadioButton.isChecked()){
                                     firstLinkUrl = "https://lenta.ru/search?query=" + doodle;
@@ -163,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
                                         String link = links.get(i);
                                         if (!link.isEmpty()) {
                                             skippedCount++;
-                                            if (skippedCount <= 6) {
+                                            if (skippedCount <= 3) {
                                                 continue;
                                             } else {
                                                 Log.d("Open link", "Open link: " + link);
