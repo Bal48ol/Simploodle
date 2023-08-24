@@ -10,8 +10,8 @@ android {
         applicationId = "com.example.googleforyou"
         minSdk = 30
         targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 3
+        versionName = "3.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -32,6 +32,7 @@ android {
 }
 
 dependencies {
+    implementation ("com.yandex.android:mobileads:5.10.0")
 
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")

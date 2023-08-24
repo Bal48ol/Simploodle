@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#184A7D"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/recsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="sans-serif"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@color/white"
+        android:text="@string/recommends">
+    </TextView>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="10dp">
+    </Space>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/rustoreButton"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#2196F3"
+            android:textColor="@color/white"
+            android:text="RuStore" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="1dp">
+        </Space>
+
+        <Button
+            android:id="@+id/skipButton"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#717171"
+            android:textColor="@color/white"
+            android:text="Продолжить" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="10dp">
+    </Space>
+
+</LinearLayout>

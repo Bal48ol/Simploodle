@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/simploodle_cat"
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:gravity="center">
+
+        <ProgressBar
+            android:id="@+id/loadingProgressBar"
+            android:layout_width="87dp"
+            android:layout_height="78dp"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/linearLayout1"
-        android:layout_width="334dp"
-        android:layout_height="249dp"
-        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.408">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView"
@@ -51,79 +58,85 @@
 
     </LinearLayout>
 
-    <RadioGroup
-        android:id="@+id/optionsRadioGroup1"
-        android:layout_width="206dp"
-        android:layout_height="324dp"
-        android:layout_below="@id/linearLayout1"
-        android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout1"
-        app:layout_constraintVertical_bias="0.785">
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp">
+    </Space>
 
-        <RadioButton
-            android:id="@+id/siteRadioButton"
-            android:layout_width="91dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:background="@drawable/border"
-            android:text="Сайт" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
 
-        <RadioButton
-            android:id="@+id/imageRadioButton"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/border"
-            android:text="Картинки" />
+        <RadioGroup
+            android:id="@+id/optionsRadioGroup1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/videoRadioButton"
-            android:layout_width="98dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/border"
-            android:text="Видео" />
+            <RadioButton
+                android:id="@+id/siteRadioButton"
+                android:layout_width="91dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:text="Сайт" />
 
-        <RadioButton
-            android:id="@+id/mapsRadioButton"
-            android:layout_width="101dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/border"
-            android:text="Карты" />
+            <RadioButton
+                android:id="@+id/imageRadioButton"
+                android:layout_width="130dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:text="Картинки" />
 
-        <RadioButton
-            android:id="@+id/newsRadioButton"
-            android:layout_width="119dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/border"
-            android:text="Новости" />
+            <RadioButton
+                android:id="@+id/videoRadioButton"
+                android:layout_width="98dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:text="Видео" />
 
-    </RadioGroup>
+            <RadioButton
+                android:id="@+id/mapsRadioButton"
+                android:layout_width="101dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:text="Карты" />
 
-    <ProgressBar
-        android:id="@+id/loadingProgressBar"
-        android:layout_width="87dp"
-        android:layout_height="78dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone"/>
+            <RadioButton
+                android:id="@+id/newsRadioButton"
+                android:layout_width="119dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:text="Новости" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </Space>
+
+    <com.yandex.mobile.ads.banner.BannerAdView
+        android:id="@+id/banner_ad_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
