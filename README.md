@@ -8,4 +8,4 @@
 <h3> Вы также можете выбрать тип поиска, такой как сайты, изображения, видео, карты или новости. </h3>
 <h3> Удачи в поиске! :) </h3>
 
-# Скачать: [Simploodle Cat](https://apps.rustore.ru/app/com.example.googleforyou)
+# Скачать: [RuStore](https://apps.rustore.ru/app/com.example.googleforyou)
